@@ -1,5 +1,5 @@
 defmodule HangmanTextClient.Player do
-  alias HangmanTextClient.State
+  alias HangmanTextClient.{Mover, Prompter, State, Summary}
 
   # won, lost, good guess, bad guess, already used letter, initializing
   def play(%State{tally: %{game_state: :won}}) do
@@ -18,7 +18,7 @@ defmodule HangmanTextClient.Player do
     continue_with_message(game, "Sorry, that letter isn't in the word")
   end
 
-  def play(game = %State{tally: %{game_state: :already_used}}) do
+  def play(game = %State{tally: %{game_state: :already_guessed}}) do
     continue_with_message(game, "You've already used that letter")
   end
 
@@ -33,23 +33,10 @@ defmodule HangmanTextClient.Player do
 
   defp continue(game) do
     game
-    |> display()
-    |> prompt()
-    |> make_move()
+    |> Summary.display()
+    |> Prompter.accept_move()
+    |> Mover.move()
     |> play()
-  end
-
-  defp display(game) do
-    IO.puts "GAME"
-    game
-  end
-
-  defp prompt(game) do
-    game
-  end
-
-  defp make_move(game) do
-    game
   end
 
   defp exit_with_message(msg) do
