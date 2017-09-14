@@ -26,7 +26,7 @@ defmodule HangmanTextClient.Prompter do
         Map.put(game, :guess, input)
       true ->
         IO.puts "Please enter a single lowercase letter"
-        accept_move(game)
+        Map.put(game, :guess, input)
     end
   end
 end
