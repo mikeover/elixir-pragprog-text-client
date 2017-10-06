@@ -13,7 +13,8 @@ defmodule HangmanTextClient.Mixfile do
 
   def application do
     [
-      extra_applications: [:logger]
+      included_applications: [ :hangman ],
+      extra_applications: [ :logger ],
     ]
   end
 
