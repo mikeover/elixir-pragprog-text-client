@@ -2,8 +2,8 @@ defmodule HangmanTextClient.Player do
   alias HangmanTextClient.{Mover, Prompter, State, Summary}
 
   # won, lost, good guess, bad guess, already used letter, initializing
-  def play(%State{game_service: %Hangman.Game{letters: letters}, tally: %{game_state: :won}}) do
-    exit_with_message("You WON! The word was #{List.to_string(letters)}")
+  def play(%State{tally: %{game_state: :won, letters: letters}}) do
+    exit_with_message("You WON!")
   end
 
   def play(%State{tally: %{game_state: :lost}}) do

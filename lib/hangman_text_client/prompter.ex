@@ -16,12 +16,12 @@ defmodule HangmanTextClient.Prompter do
     exit(:normal)
   end
 
-  defp check_input(input, game = %State{game_service: %Hangman.Game{ letters: letters }}) do
+  defp check_input(input, game = %State{}) do
     input = String.trim(input)
     cond do
-      input == List.to_string(letters) ->
-        IO.puts "Congrats! You guessed the correct word: #{input}"
-        exit :normal
+#      input == List.to_string(letters) ->
+#        IO.puts "Congrats! You guessed the correct word: #{input}"
+#        exit :normal
       input =~ ~r/\A[a-z]\z/ ->
         Map.put(game, :guess, input)
       true ->
