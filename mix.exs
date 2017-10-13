@@ -20,7 +20,7 @@ defmodule HangmanTextClient.Mixfile do
 
   defp deps do
     [
-      { :hangman, path: "../hangman" },
+      { :hangman, git: "git://github.com/mikeover/elixir-pragprog-hangman.git" },
     ]
   end
 end

@@ -1,0 +1,2 @@
+%{"dictionary": {:git, "git://github.com/mikeover/elixir-pragprog-dictionary.git", "3616b62f0e722879fce674f8dec384dbc8017740", []},
+  "hangman": {:git, "git://github.com/mikeover/elixir-pragprog-hangman.git", "f623925e7f0f692d2ca3d158956c07cb65d05bc8", []}}
